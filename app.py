@@ -83,7 +83,7 @@ def fetch(url, session):
     return re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", r.html.html)'''
     firefox_options=webdriver.FirefoxOptions()
     firefox_options.binary_location = os.environ.get('FIREFOX_BIN')
-    chrome_options.add_argument("--headless")
+    firefox_options.add_argument("--headless")
     firefox_options.add_argument("--disable-dev-shm-usage")
     firefox_options.add_argument("--no-sandbox")
     driver = webdriver.Firefox(executable_path=os.environ.get('GECOKDRIVER_PATH'), firefox_options=firefox_options)
