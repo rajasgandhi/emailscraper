@@ -81,7 +81,12 @@ def fetch(url, session):
     r = session.get(url)
     r.html.render(sleep=1, keep_page=True, scrolldown=1)
     return re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", r.html.html)'''
-    driver = webdriver.Firefox()
+    firefox_options=webdriver.FirefoxOptions()
+    firefox_options.binary_location = os.environ.get('FIREFOX_BIN')
+    chrome_options.add_argument("--headless")
+    firefox_options.add_argument("--disable-dev-shm-usage")
+    firefox_options.add_argument("--no-sandbox")
+    driver = webdriver.Firefox(executable_path=os.environ.get('GECOKDRIVER_PATH'), firefox_options=firefox_options)
     driver.get(url)
     html=driver.execute_script("return document.documentElement.outerHTML")
     return re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", html)
