@@ -1,7 +1,7 @@
 const express = require('express')
 var cors = require('cors') // Enable CORS
 var timeout = require('express-timeout-handler');
-const app = express()
+const app = express() 
 const port = process.env.PORT || 8000
 const scraper = require('./scraper.js');
 
