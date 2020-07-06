@@ -16,7 +16,7 @@ var options = {
 
   // Enabling cors for frontend. The same could be done using React Proxy
 var corsOptions = {
-    origin: ["http://localhost:3000/","http://localhost:3000"], 
+    origin: ["http://findemails.herokuapp.com/","http://findemails.herokuapp.com"], 
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
@@ -29,13 +29,29 @@ var corsOptions = {
   // Here the front-end will send the POST request using fetch
   app.post('/fetch', cors(corsOptions), async function(req, res) {
     const url = req.body.url;
-    const selector = req.body.selector;
-
+    //const selector = req.body.selector;
+    //const selector = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     
     // Calling scraper function
-    const data = await scraper(url, selector);
+    const data = await scraper(url);
     // Returning scrped data response 
     res.end(JSON.stringify(data));  
+  });
+
+  app.get('/api', cors(corsOptions), async function(req, res) {
+    const url = req.query.url.toString();
+    const apikey = req.query.apikey.toString();
+    if (apikey == null) {
+      res.end({"Invalid Response" : "Make sure API key is present"});
+    } else if (url == null) {
+      res.end({"Invalid Response" : "Make sure URL is present"});
+    }
+    try {
+      const data = await scraper(url);
+      res.end(JSON.stringify(data));
+    } catch(error) {
+      res.end({"Invalid Response" : "Make sure URL is in proper format"});
+    }
   });
 
   // Just for checking if Backend is working or not

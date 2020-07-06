@@ -28,7 +28,7 @@ const Result = props => {
   } else if (props.status === false && props.data !== "") {
     return (
       <div className="result">
-        <h2>Scraped Data</h2>
+        <h2>Scraped Emails</h2>
         <div className="result-box">{props.data}</div>
       </div>
     );

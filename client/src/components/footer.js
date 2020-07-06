@@ -4,9 +4,9 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>
-        Made By © Hamza Ahmad
+        Made By © <a href="https://rajasgandhi.me" target="top">Rajas Gandhi</a>
       </p>
-      d
+      
     </div>
   );
 };

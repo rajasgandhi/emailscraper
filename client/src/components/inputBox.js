@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "./Result.js";
+import Result from "./result.js";
 
 export default class InputBox extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class InputBox extends React.Component {
     // Fetch POST request to the Express Backend
     const Postdata = { url: this.state.url, selector: this.state.selector };
     //Change fetch url when deploying app
-    fetch("http://localhost:8000/fetch", {
+    fetch("http://findemails.herokuapp.com/fetch", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -55,19 +55,11 @@ export default class InputBox extends React.Component {
               type="text"
               id="url"
               name="url"
+              required
               onChange={this.handleChange}
             />
           </div>
-          <div className="inputContainer">
-            <label className="inputLabel">Selector Code: </label>
-            <input
-              className="inputField"
-              type="text"
-              id="selector"
-              name="selector"
-              onChange={this.handleChange}
-            />
-          </div>
+          
           <div className="button_cont" align="center">
             <input className="button" type="submit" value="Fetch" />
           </div>

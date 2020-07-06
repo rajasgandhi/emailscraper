@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import InputBox from "./components/InputBox.js";
-import Footer from "./components/Footer.js";
-import Title from "./components/Title.js";
-import Description from "./components/Description.js";
+import InputBox from "./components/inputBox.js";
+import Footer from "./components/footer.js";
+import Title from "./components/title.js";
+import Description from "./components/description.js";
 
 function App() {
   return (
