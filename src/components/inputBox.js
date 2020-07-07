@@ -29,7 +29,7 @@ export default class InputBox extends React.Component {
     // Fetch POST request to the Express Backend
     const Postdata = { url: this.state.url, selector: this.state.selector };
     //Change fetch url when deploying app
-    fetch("http://findemails.herokuapp.com/fetch", {
+    fetch("https://test.d3svlw56619c8w.amplifyapp.com/fetch", {
       method: "POST",
       headers: {
         Accept: "application/json",

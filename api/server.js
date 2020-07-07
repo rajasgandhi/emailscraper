@@ -17,7 +17,7 @@ var options = {
 
   // Enabling cors for frontend. The same could be done using React Proxy
 var corsOptions = {
-    origin: ["http://findemails.herokuapp.com/","http://findemails.herokuapp.com"], 
+    origin: ["https://test.d3svlw56619c8w.amplifyapp.com/","https://test.d3svlw56619c8w.amplifyapp.com"], 
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
