@@ -6,6 +6,7 @@ const port = process.env.PORT || 8000
 const scraper = require('./scraper.js');
 
 app.use(express.static('client-build'))
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Options for Timeout Module
 var options = {
