@@ -19,7 +19,7 @@ const Result = props => {
     return (
       <div className="error-box">
         <p>An Error Occured. </p>
-        <p>Please check your URL and Selector. This app does not works on all websites.</p>
+        <p>Please check your URL. This app does not works on all websites.</p>
         <p>Try it with another website</p>
 
       </div>

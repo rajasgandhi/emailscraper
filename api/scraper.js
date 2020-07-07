@@ -1,12 +1,12 @@
 const puppeteer = require("puppeteer");
+const chromeLambda = require("chrome-aws-lambda");
 
 module.exports = async function (fetchUrl) {
   try {
-    const browser = await puppeteer.launch({
+    const browser = await chromeLambda.puppeteer.launch({
       headless: true,
-
-      // Important to run on Heroku and you need to install buildpacks. Look stackoverflow link below
-      // https://stackoverflow.com/questions/52225461/puppeteer-unable-to-run-on-heroku
+      args: chromeLambda.args,
+      executablePath: await chromeLambda.executablePath,
       args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     const page = await browser.newPage();
